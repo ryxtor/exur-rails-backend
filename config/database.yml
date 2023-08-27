@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: exur_rails_backend_production
-  username: exur_rails_backend
-  password: <%= ENV["EXUR_RAILS_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
