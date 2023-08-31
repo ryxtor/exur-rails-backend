@@ -53,3 +53,4 @@ gem 'dry-configurable', '0.9.0'
 gem 'dry-container', '0.7.2'
 gem 'letter_opener', group: :development
 gem 'letter_opener_web', group: :development
+gem 'rack-cors'
