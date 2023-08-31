@@ -6,8 +6,6 @@ class ApplicationController < ActionController::API
   protected
 
   def configure_permitted_parameters
-    # Permit the first_name and last_name parameters along with other
-    # sign up parameters.
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :gender, :birth_date, :explorer, :admin])
 
     # Permit the first_name and last_name parameters along with other
