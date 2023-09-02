@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_031618) do
     t.boolean "explorer", default: false
     t.integer "gender"
     t.string "username"
-    t.string "jti"
+    t.string "jti", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true

@@ -1,5 +1,6 @@
-class Api::V1::PostsController < Api::V1::ApiController
-  before_action :set_post, only: %i[ show update destroy ]
+class Api::V1::PostsController < ApplicationController
+  before_action :set_post, only: %i[show update destroy]
+  before_action :authenticate_user!
 
   # GET /posts
   def index
@@ -39,13 +40,14 @@ class Api::V1::PostsController < Api::V1::ApiController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:user_id, :text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def post_params
+    params.require(:post).permit(:user_id, :text)
+  end
 end
