@@ -49,8 +49,10 @@ end
 gem 'devise', '~> 4.9'
 
 gem 'devise-jwt', '~> 0.10.0'
-gem 'warden-jwt_auth', '~> 0.7.0'
+gem 'fast_jsonapi'
 gem 'letter_opener', group: :development
 gem 'letter_opener_web', group: :development
 gem 'rack-cors'
-gem 'fast_jsonapi'
+gem 'rubocop'
+gem 'warden-jwt_auth', '~> 0.7.0'
+gem 'solargraph'
