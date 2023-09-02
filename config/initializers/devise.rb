@@ -319,5 +319,4 @@ Devise.setup do |config|
     ]
     jwt.expiration_time = 14.days.to_i
   end
-
 end
