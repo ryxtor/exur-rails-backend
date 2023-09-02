@@ -21,8 +21,8 @@ module ExurRailsBackend
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
-    config.middleware.use Rack::MethodOverride
-    config.middleware.use ActionDispatch::Static, "#{root}/public"
+    # config.middleware.use Rack::MethodOverride
+    # config.middleware.use ActionDispatch::Static, "#{root}/public"
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
   end
