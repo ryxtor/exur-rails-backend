@@ -6,9 +6,9 @@ class ApplicationController < ActionController::API
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
-                                      keys: %i[first_name last_name gender birth_date explorer admin])
+                                      keys: %i[first_name last_name gender birth_date explorer admin username])
 
     devise_parameter_sanitizer.permit(:account_update,
-                                      keys: %i[first_name last_name gender birth_date explorer admin])
+                                      keys: %i[first_name last_name gender birth_date explorer admin username])
   end
 end

@@ -48,9 +48,8 @@ end
 
 gem 'devise', '~> 4.9'
 
-gem 'devise-jwt', '~> 0.9.0'
-#gem 'dry-configurable', '0.9.0'
-#gem 'dry-container', '0.7.2'
+gem 'devise-jwt', '~> 0.10.0'
+gem 'warden-jwt_auth', '~> 0.7.0'
 gem 'letter_opener', group: :development
 gem 'letter_opener_web', group: :development
 gem 'rack-cors'
