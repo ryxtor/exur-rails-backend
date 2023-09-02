@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    belongs_to :users
+  belongs_to :users
 
-    validates :text, presence: true
+  validates :text, presence: true
 end

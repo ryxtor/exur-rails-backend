@@ -1,9 +1,10 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+module Users
+  class RegistrationsController < Devise::RegistrationsController
     include RackSessionFix
     respond_to :json
-  
+
     private
-  
+
     def respond_with(resource, _opts = {})
       if resource.persisted?
         render json: {
@@ -17,3 +18,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
   end
+end
