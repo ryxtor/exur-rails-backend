@@ -54,5 +54,5 @@ gem 'letter_opener', group: :development
 gem 'letter_opener_web', group: :development
 gem 'rack-cors'
 gem 'rubocop'
-gem 'warden-jwt_auth', '~> 0.7.0'
 gem 'solargraph'
+gem 'warden-jwt_auth', '~> 0.7.0'
