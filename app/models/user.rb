@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   has_many :posts
+  has_many :comments, dependent: :destroy
 
   validates :first_name, :last_name, :gender, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i }, uniqueness: true

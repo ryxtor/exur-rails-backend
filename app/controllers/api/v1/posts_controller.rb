@@ -6,7 +6,7 @@ module Api
 
       # GET /posts
       def index
-        @posts = Post.all
+        @posts = current_user.posts
 
         render json: @posts
       end
@@ -20,8 +20,10 @@ module Api
       def create
         @post = Post.new(post_params)
 
+        @post.user = current_user
+
         if @post.save
-          render json: @post, status: :created, location: @post
+          render json: @post, status: :created
         else
           render json: @post.errors, status: :unprocessable_entity
         end
@@ -38,7 +40,11 @@ module Api
 
       # DELETE /posts/1
       def destroy
-        @post.destroy
+        if @post.destroy
+          render json: 'se hizo la borracion'
+        else
+          render json: 'No se hizo la borracion'
+        end
       end
 
       private
@@ -50,7 +56,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def post_params
-        params.require(:post).permit(:user_id, :text)
+        params.require(:post).permit(:text)
       end
     end
   end
