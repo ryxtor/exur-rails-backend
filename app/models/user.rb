@@ -9,8 +9,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
 
-  validates :first_name, :last_name, :gender, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i }, uniqueness: true
   enum gender: { Male: 0, Female: 1, Non_Binary: 2 }, _prefix: true
-  validates :username, length: { in: 3..16 }, uniqueness: true
+  validates :username, length: { in: 3..16 }, uniqueness: true, presence: true
 end

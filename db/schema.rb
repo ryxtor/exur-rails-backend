@@ -46,14 +46,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_193857) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.date "birth_date"
     t.boolean "admin", default: false
     t.boolean "explorer", default: false
     t.integer "gender"
     t.string "username"
-    t.string "jti"
+    t.string "jti", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
