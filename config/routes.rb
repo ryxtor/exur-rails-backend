@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :posts, only: %i[create]
       resources :users do
+        collection do
+          get :current_user_data
+        end
         resources :posts, only: %i[index update destroy show] do
           resources :comments, only: %i[index create update destroy show]
         end
