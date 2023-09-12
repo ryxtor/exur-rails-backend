@@ -48,6 +48,7 @@ end
 
 gem 'devise', '~> 4.9'
 
+gem 'cancancan'
 gem 'devise-jwt', '~> 0.10.0'
 gem 'fast_jsonapi'
 gem 'letter_opener', group: :development
