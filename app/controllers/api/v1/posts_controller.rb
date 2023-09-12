@@ -7,12 +7,13 @@ module Api
       # GET /posts
       def index
         @posts = current_user.posts
-
+        @posts = @posts.map { |post| post_data(post) }
         render json: @posts
       end
 
       # GET /posts/1
       def show
+        @post = post_data(@post)
         render json: @post
       end
 
@@ -48,6 +49,23 @@ module Api
       end
 
       private
+
+      def post_data(post)
+        {
+          id: post.id,
+          text: post.text,
+          user: post.user.username,
+          created_at: post.created_at,
+          comments: post.comments.map do |comment|
+            {
+              id: comment.id,
+              text: comment.text,
+              user: comment.user.username,
+              created_at: comment.created_at
+            }
+          end
+        }
+      end
 
       # Use callbacks to share common setup or constraints between actions.
       def set_post
