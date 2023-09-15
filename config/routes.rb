@@ -15,9 +15,12 @@ Rails.application.routes.draw do
         collection do
           get :current_user_data
         end
-        resources :posts, only: %i[index update destroy show] do
-          resources :comments, only: %i[index create update destroy show]
-        end
+      end
+      resources :posts, only: %i[index update destroy show] do
+        resources :likes, only: %i[create update destroy show]
+      end
+      resources :comments, only: %i[index create update destroy show] do
+        resources :likes, only: %i[create update destroy show]
       end
     end
   end

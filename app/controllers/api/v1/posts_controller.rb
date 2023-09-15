@@ -51,16 +51,21 @@ module Api
       private
 
       def post_data(post)
+        likes = post.like_count
         {
           id: post.id,
           text: post.text,
           user: post.user.username,
           created_at: post.created_at,
+          likes: likes[:likes],
+          dislikes: likes[:dislikes],
           comments: post.comments.map do |comment|
             {
               id: comment.id,
               text: comment.text,
               user: comment.user.username,
+              likes: comment.like_count[:likes],
+              dislikes: comment.like_count[:dislikes],
               created_at: comment.created_at
             }
           end
