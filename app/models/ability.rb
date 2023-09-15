@@ -10,6 +10,7 @@ class Ability
     can :destroy, Comment, post: user.posts
     can :read, Post
     can [:read, :update], User, id: user.id
+    can :manage, Like
 
     return unless user.admin?
 
